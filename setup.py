@@ -5,7 +5,7 @@ history = open('CHANGES.rst').read().strip()
 long_description = "%s\n\n\n%s" % (readme, history)
 
 setup(name='collective.editskinswitcher',
-      version='3.1',
+      version='3.2.dev0',
       description="Switch to the edit skin for certain domains.""",
       long_description=long_description,
       classifiers=[
