@@ -1,7 +1,7 @@
 Changelog for collective.editskinswitcher
 =========================================
 
-3.1 (unreleased)
+3.1 (2013-09-16)
 ----------------
 
 - Fix handling the specific_domains property.  It seems this has only
