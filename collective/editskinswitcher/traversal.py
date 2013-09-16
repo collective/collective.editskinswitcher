@@ -43,8 +43,12 @@ def edit_url(request, props):
 def specific_domain(request, props):
     specific_domains = props.getProperty('specific_domains', ())
     if specific_domains != ():
+        # Simplest way to get the domain:
         thisurl = request.getURL()
-        if thisurl in specific_domains:
+        domain = '/'.join(thisurl.split('/')[:3])
+        # The property is a string like this:
+        # http://domain1.net\nhttps://domain2.gov
+        if domain in specific_domains:
             logger.debug("This url is in a specific domain.")
             return True
     logger.debug("This url is NOT in a specific domain.")

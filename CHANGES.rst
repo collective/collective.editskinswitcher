@@ -4,7 +4,11 @@ Changelog for collective.editskinswitcher
 3.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix handling the specific_domains property.  It seems this has only
+  worked when the exact url of a page is in the property, but the
+  domain (including the protocol) should be enough.
+  Fixes https://github.com/collective/collective.editskinswitcher/issues/1
+  [davidemoro, realefab, maurits]
 
 
 3.0 (2013-02-16)

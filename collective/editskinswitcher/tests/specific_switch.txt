@@ -46,6 +46,8 @@ instance into believing it is on a different url:
     'http://127.0.0.1'
     >>> TestRequest(SERVER_URL='http://www.specifically.this:123').getURL()
     'http://www.specifically.this:123'
+    >>> TestRequest(SERVER_URL='http://www.specifically.this:123/some/page?foo=bar').getURL()
+    'http://www.specifically.this:123/some/page?foo=bar'
 
 On localhost we show visitors the default skin.  We test that by
 faking traversal:
@@ -71,7 +73,7 @@ browser by testing the changed template in the skin:
 
 When accessing the edit skin users go via one of our specific urls:
 
-    >>> request = TestRequest(SERVER_URL='http://www.specifically.this:123')
+    >>> request = TestRequest(SERVER_URL='http://www.specifically.this:123/some/page?foo=bar')
     >>> event = FakeTraversalEvent(portal, request)
     >>> switch_skin(portal, event)
     >>> portal.getCurrentSkinName()
