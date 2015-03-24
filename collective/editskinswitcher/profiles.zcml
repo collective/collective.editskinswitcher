@@ -35,4 +35,12 @@
       handler="collective.editskinswitcher.upgrades.change_switch_skin_action_to_multiple_selection"
       profile="collective.editskinswitcher:default" />
 
+  <genericsetup:upgradeStep
+      title="Remove based_on_url property"
+      description=""
+      source="1003"
+      destination="1004"
+      handler="collective.editskinswitcher.upgrades.remove_based_on_url_property"
+      profile="collective.editskinswitcher:default" />
+
 </configure>

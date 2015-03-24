@@ -58,11 +58,7 @@ def change_switch_skin_action_to_multiple_selection(context, logger=None):
     original = sheet.getProperty('switch_skin_action')
     if original is None:
         # Coming from very old version, like 0.5.
-        from collective.editskinswitcher.config import SWITCH_SKIN_OPTIONS
-        if SWITCH_SKIN_OPTIONS:
-            original = SWITCH_SKIN_OPTIONS[0]
-        else:
-            original = ''
+        original = "based on edit URL"
     else:
         sheet._delProperty('switch_skin_action')
     # As value we need the list of allowed methods, editSwitchList
@@ -71,3 +67,37 @@ def change_switch_skin_action_to_multiple_selection(context, logger=None):
                  'multiple selection', logger)
     sheet._setPropValue('switch_skin_action', (original, ))
     logger.info("Restored original value: %r", original)
+
+
+def remove_based_on_url_property(context, logger=None):
+    """Remove based_on_url property.
+
+    This is an ancient option from before we were using the
+    switch_skin_action property.  But it was never cleaned up.
+    """
+    if logger is None:
+        # Called as upgrade step: define our own logger.
+        logger = logging.getLogger('collective.editskinswitcher')
+
+    portal_props = getToolByName(context, 'portal_properties')
+    sheet = portal_props.editskin_switcher
+    propname = 'based_on_url'
+    if not sheet.hasProperty(propname):
+        return
+    original = sheet.getProperty(propname)
+    sheet._delProperty(propname)
+    logger.info("Removed no longer needed %s property. Value was %r.",
+                propname, original)
+    if not original:
+        # value was False, no need for further action.
+        return
+    # value was True, make sure it is on the switch_skin_action property.
+    propname = 'switch_skin_action'
+    original = list(sheet.getProperty(propname))
+    edit_url = "based on edit URL"
+    if edit_url in original:
+        return
+    original.append("based on edit URL")
+    sheet._setPropValue('switch_skin_action', tuple(original))
+    logger.info("Added %r to switch_skin_action. value is now: %s",
+                edit_url, ', '.join(original))

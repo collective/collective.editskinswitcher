@@ -4,6 +4,10 @@ Changelog for collective.editskinswitcher
 3.2 (unreleased)
 ----------------
 
+- Remove no longer needed ``based_on_url`` property.  Merge it with
+  the ``switch_skin_action`` property.
+  [maurits]
+
 - Remove backwards compatibility code that is not needed on the
   supported Plone 4.1 and higher.
   [maurits]

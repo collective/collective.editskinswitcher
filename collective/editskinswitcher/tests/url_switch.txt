@@ -1,8 +1,8 @@
 Skin Switching based on URL
 ===========================
 
-Skin switching is done when the based_on_url property is True.  This
-is the default::
+Skin switching based on URL is done when switch_skin_action property
+is set to the default::
 
     >>> from Products.CMFCore.utils import getToolByName
     >>> context = portal
