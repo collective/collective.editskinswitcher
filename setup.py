@@ -31,6 +31,9 @@ setup(name='collective.editskinswitcher',
       install_requires=[
           'setuptools',
       ],
+      extras_require={
+          'test': ['Products.PloneTestCase'],
+      },
       entry_points="""
       # -*- Entry points: -*-
 
