@@ -11,13 +11,12 @@ except ImportError:
 except ImportError:
     # BBB Plone 3
     from Globals import InitializeClass
+from collective.editskinswitcher.config import SWITCH_SKIN_OPTIONS
 
 
 def editSwitchList(self):
     """ Options for switch_skin_action property """
-    return ["based on edit URL", "based on specific domains",
-            "based on SSL", "based on admin header",
-            "no URL based switching"]
+    return SWITCH_SKIN_OPTIONS
 
 setattr(SimpleItemWithProperties, 'editSwitchList', editSwitchList)
 InitializeClass(SimpleItemWithProperties)

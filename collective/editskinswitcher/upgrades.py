@@ -56,7 +56,15 @@ def change_switch_skin_action_to_multiple_selection(context, logger=None):
     if sheet.getPropertyType('switch_skin_action') == 'multiple selection':
         return
     original = sheet.getProperty('switch_skin_action')
-    sheet._delProperty('switch_skin_action')
+    if original is None:
+        # Coming from very old version, like 0.5.
+        from collective.editskinswitcher.config import SWITCH_SKIN_OPTIONS
+        if SWITCH_SKIN_OPTIONS:
+            original = SWITCH_SKIN_OPTIONS[0]
+        else:
+            original = ''
+    else:
+        sheet._delProperty('switch_skin_action')
     # As value we need the list of allowed methods, editSwitchList
     # (see monkeypatches.py):
     add_property(sheet, 'switch_skin_action', 'editSwitchList',

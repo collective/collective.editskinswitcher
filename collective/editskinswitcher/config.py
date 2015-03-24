@@ -25,3 +25,12 @@ WHITELIST_REGEXPS = [re.compile(r) for r in WHITELIST_REGEXPS_PATTERNS]
 # as well.  So here we make it configurable in case someone is badly
 # affected:
 REMOVE_LOCAL_SITE_HOOK = True
+
+# Options for the switch_skin_action property.
+SWITCH_SKIN_OPTIONS =[
+    "based on edit URL",
+    "based on specific domains",
+    "based on SSL",
+    "based on admin header",
+    "no URL based switching",
+    ]

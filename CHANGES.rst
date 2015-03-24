@@ -4,7 +4,9 @@ Changelog for collective.editskinswitcher
 3.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix upgrade error when coming from really old version, like 0.5.
+  Fixes ValueError: The property switch_skin_action does not exist
+  [maurits]
 
 
 3.1 (2013-09-16)
