@@ -6,7 +6,7 @@ Collective edit skin switcher
 For a customer of `Zest Software`_ I [Maurits van Rees] created a
 package called ``collective.editskinswitcher``.  I gladly took some code
 from colleague Mark van Lent who did something similar for a different
-web site.  The package is on the Cheese Shop so it can be easy
+web site.  The package is on the Python Package Index so it can be easy
 installed.  And the code is in the Plone github collective_.
 
 .. _`Zest Software`: http://zestsoftware.nl
@@ -24,11 +24,9 @@ Compatibility
 What does it do?
 ----------------
 
-Let's say you have a Plone Site.  I tested this with Plone 3.  I see
-no reason why it should fail on Plone 2.5.  Maybe it even works on a
-CMF site.  Anyway, whatever site you have is available on two urls:
-``www.example.com`` and ``edit.example.com``.  Some day you
-should ask your local Apache guru how he did that.
+Let's say you have a Plone Site.  Anyway, whatever site you have is
+available on two urls: ``www.example.com`` and ``edit.example.com``.
+Some day you should ask your local Apache guru how he did that.
 
 With ``collective.editskinswitcher`` installed (with the portal quick
 installer), visitors that go to the website with the url
