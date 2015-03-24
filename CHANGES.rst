@@ -4,6 +4,10 @@ Changelog for collective.editskinswitcher
 3.2 (unreleased)
 ----------------
 
+- Remove backwards compatibility code that is not needed on the
+  supported Plone 4.1 and higher.
+  [maurits]
+
 - Fix upgrade error when coming from really old version, like 0.5.
   Fixes ValueError: The property switch_skin_action does not exist
   [maurits]

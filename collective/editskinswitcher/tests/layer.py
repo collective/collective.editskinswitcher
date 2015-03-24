@@ -1,14 +1,7 @@
+from OFS import metaconfigure
 from Products.PloneTestCase.layer import PloneSite
 from Testing import ZopeTestCase as ztc
-
-try:
-    from Zope2.App import zcml
-    from OFS import metaconfigure
-    zcml, metaconfigure  # pyflakes
-except ImportError:
-    # BBB Zope 2.12
-    from Products.Five import zcml
-    from Products.Five import fiveconfigure as metaconfigure
+from Zope2.App import zcml
 
 
 class TestLayer(PloneSite):
