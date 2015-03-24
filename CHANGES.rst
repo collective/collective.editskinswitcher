@@ -1,7 +1,7 @@
 Changelog for collective.editskinswitcher
 =========================================
 
-3.2 (unreleased)
+3.2 (2015-03-24)
 ----------------
 
 - Remove no longer needed ``based_on_url`` property.  Merge it with
